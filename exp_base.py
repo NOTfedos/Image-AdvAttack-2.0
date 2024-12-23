@@ -55,7 +55,7 @@ def get_accuracy(model, univ_image, num_classes, mask):
             prob, pred_label = torch.nn.Softmax(dim=1)(preds).max(1)
             if pred_label[0] == label:
                 k += 1
-            probs.append(prob[0].cpu().detach().numpy())
+            probs.append(float(prob[0].cpu().detach().numpy()))
 
         return k, probs
 
